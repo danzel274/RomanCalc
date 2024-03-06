@@ -57,6 +57,7 @@ public class RomanCalc {
             mode = validateInput(expParts);
         } catch (InvalidInputException e) {
             System.out.println("Ошибка ввода: " + e.getMessage());
+            return;
         }
 
         int a = 0;
@@ -92,7 +93,7 @@ public class RomanCalc {
             if (result > 0)
                 System.out.println(Roman.toStr(result));
             else
-                System.out.println("Ошибка. В римской системе нет отрицательных чисел");
+                System.out.println("Ошибка вывода: В римской системе нет нуля и отрицательных чисел");
         }
 
     }
