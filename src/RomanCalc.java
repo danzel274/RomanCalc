@@ -12,7 +12,8 @@ class Roman {
         String out = "";
         if (input >= 10)
             out = RomanTens.values()[input / 10 - 1].name();
-        out = out + RomanOnes.values()[input % 10 - 1].name();
+        if (input % 10 != 0)
+            out = out + RomanOnes.values()[input % 10 - 1].name();
         return out;
     }
 
