@@ -1,12 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-class InvalidInputException extends Exception {
-    public InvalidInputException(String message) {
-        super(message);
-    }
-}
-
 class Roman {
     public static String toStr(int input) {
         String out = "";
@@ -29,7 +23,7 @@ class Roman {
 }
 
 public class RomanCalc {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidOutputException {
 
 //        System.out.println("Hello World");
 //
@@ -90,10 +84,15 @@ public class RomanCalc {
         if (mode == 1) {
             System.out.println(result);
         } else if (mode == 2) {
-            if (result > 0)
+            if (result > 0) {
                 System.out.println(Roman.toStr(result));
-            else
-                System.out.println("Ошибка вывода: В римской системе нет нуля и отрицательных чисел");
+            } else {
+                try {
+                    throw new InvalidOutputException("В римской системе нет нуля и отрицательных чисел");
+                } catch (InvalidOutputException e) {
+                    System.out.println("Ошибка вывода: " + e.getMessage());
+                }
+            }
         }
 
     }
