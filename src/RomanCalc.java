@@ -23,7 +23,7 @@ class Roman {
 }
 
 public class RomanCalc {
-    public static void main(String[] args) throws InvalidOutputException {
+    public static void main(String[] args) {
 
 //        System.out.println("Hello World");
 //
